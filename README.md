@@ -127,6 +127,6 @@ private void SfCardView_Dismissed(object sender, DismissedEventArgs e)
 
 [Notify events to visible index changed](https://help.syncfusion.com/xamarin/cards/events?_ga=2.118251401.1232783100.1593359517-1450022673.1574142796#visiblecardindexchanging)
 
-# roubleshooting
+# Troubleshooting
 ## Path too long exception
 If you are facing path too long exception when building this example project, close Visual Studio and rename the repository to short and build the project.
