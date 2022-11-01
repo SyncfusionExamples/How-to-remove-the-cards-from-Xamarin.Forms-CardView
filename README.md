@@ -1,6 +1,6 @@
 # How to remove the cards from Xamarin.Forms CardView
 
-This repository contains sample for how to remove cards from the [Syncfusion Xamarin.Forms Card View](https://help.syncfusion.com/xamarin/cards/getting-started) control.
+This repository contains sample to remove cards from the [Syncfusion Xamarin.Forms Card View](https://help.syncfusion.com/xamarin/cards/getting-started) control.
 
 Please refer the KB through this [link](https://www.syncfusion.com/kb/11655/how-to-remove-cards-from-card-view-collection-in-xamarin-forms).
 
