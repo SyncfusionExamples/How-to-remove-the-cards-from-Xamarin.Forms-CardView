@@ -1,131 +1,55 @@
-# How-to-remove-the-cards-from-Xamarin.Forms-CardView
-It describes how to remove the cards from Xamarin.Forms CardView. For more reference please refer the below KB
+# How to remove the cards from Xamarin.Forms CardView
 
-[How to remove cards from card view collection in Xamarin.Forms](https://www.syncfusion.com/kb/11655/?utm_medium=listing&utm_source=github-examples)
+This repository contains sample to remove cards from the [Syncfusion Xamarin.Forms Card View](https://help.syncfusion.com/xamarin/cards/getting-started) control.
 
-The [SfCardView](https://help.syncfusion.com/xamarin/cards/getting-started?_ga=2.142432434.1232783100.1593359517-1450022673.1574142796#sfcardview) is a Syncfusion UI component that helps organizing the content in UI views as cards. This section explains how to remove a card from Xamarin.Forms CardView collection. You can remove the cards by enabling the [SwipeToDismiss](https://github.com/SyncfusionExamples/shadow-effect-in-Xamarin.Forms-cards-SfCardView-/blob/master/README.md) property in CardView.
+Please refer the KB through this [link](https://www.syncfusion.com/kb/11655/how-to-remove-cards-from-card-view-collection-in-xamarin-forms).
 
- 
-**Creating the previous UI**
- 
+## Syncfusion controls:
 
-You can achieve the previous UI using the following code snippets:
+This project used the following Syncfusion control(s):
+* [SfCardView](https://www.syncfusion.com/xamarin-ui-controls/xamarin-cards)
 
- 
-**[XAML]**
+## Supported platforms
 
-```
+| Platforms | Supported versions |
+| --------- | ------------------ |
+| Android   | API level 21 and later versions |
+| iOS | iOS 9.0 and later versions |
+| UWP | Windows 10 devices |
 
+## Requirements to run the sample
 
-..
- 
-      <ListView   x:Name="EventListView"
-                  RowHeight="100"
-                  SeparatorVisibility="None"
-                  ItemsSource="{Binding Items}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <cards:SfCardView Dismissed="SfCardView_Dismissed" SwipeToDismiss="True"  Margin="10">
-                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal" >
-                                    <Image Margin="10,0,0,0" HeightRequest="40" WidthRequest="40"
-                                                  Source="{Binding Image}"/>
-                                    <Label FontAttributes="Bold" Margin="10,0,0,0"
-                                           FontSize="16"
-                                           MaxLines="1"
-                                           Text="{Binding Title}"
-                                           LineBreakMode="NoWrap"
-                                           TextColor="Black"
-                                           HorizontalOptions="Start"
-                                           VerticalOptions="Center" />
-                                </StackLayout>
-                            </Grid>
-                        </cards:SfCardView>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-```
- 
-**[C#]**
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
 
-```
+Refer to the following link for more details - [System Requirements](https://help.syncfusion.com/xamarin/system-requirements)
 
+## How to run the sample
 
-public class CardModel
-{
-    public string Title {get; set;}
- 
-    public string Image {get; set;}
-}
+1. Clone the sample and open it in Visual Studio.
 
-```
+   *Note: If you download the sample using the "Download ZIP" option, right-click it, select Properties, and then select Unblock.*
+   
+2. Register your license key in the App.xaml.cs file as demonstrated in the following code.
 
-**[C#]**
+		public App()
+		{
+			//Register Syncfusion license
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("YOUR LICENSE KEY");
+	
+			InitializeComponent();
+	
+			MainPage = new App1.MainPage();
+		}
+		
+	Refer to this [link](https://help.syncfusion.com/xamarin/licensing/overview) for more details.
+	
+3. Clean and build the application.
 
-```
+4. Run the application.
 
-public class CardViewModel
-{
-        public ObservableCollection<CardModel> Items { get; set; }
-        public CardViewModel()
-        {
-            Items = new ObservableCollection<CardModel>()
-            {
-                new CardModel(){ Title = "Facebook" , Image = "FacebookFill.png"},
-                new CardModel(){ Title = "Gmail" , Image = "GmailFill.png"},
-                new CardModel(){ Title = "Instagram" , Image = "InstagramFill.png"},
-                new CardModel(){ Title = "WhatsApp" , Image = "WhatsappFill.png"},
-            };
-        }
-}
+## License
 
-```
-
-**[C#]**
-
-```
-
-
-public MainPage()
-{
-    InitializeComponent();
-    items = (BindingContext as CardViewModel)?.Items;
-}
-```
- 
-
-Since, we have added that CardView in a ListView, even though it is been removed from CardView collection still exists in the ListView. So, to remove it thoroughly, we have removed that model in the Dismissed event as shown in the following code snippet.
-
- **[C#]**
-```
-
-private void SfCardView_Dismissed(object sender, DismissedEventArgs e)
-
-{
-
-            var item = (sender as SfCardView)?.BindingContext as CardModel;
-
-            if (items != null && item != null && items.Contains(item))
-
-            {
-
-                items.Remove(item);
-
-            }
-
- }
-```
- 
-**See Also**
-
-
-[How to dismiss the cards programmatically](https://help.syncfusion.com/xamarin/cards/getting-started?_ga=2.118251401.1232783100.1593359517-1450022673.1574142796#dismiss-the-card-programmatically)
-
-[Available customization in cards](https://help.syncfusion.com/xamarin/cards/customization?_ga=2.118251401.1232783100.1593359517-1450022673.1574142796)
-
-[Notify events to visible index changed](https://help.syncfusion.com/xamarin/cards/events?_ga=2.118251401.1232783100.1593359517-1450022673.1574142796#visiblecardindexchanging)
+Syncfusion has no liability for any damage or consequence that may arise by using or viewing the samples. The samples are for demonstrative purposes, and if you choose to use or access the samples, you agree to not hold Syncfusion liable, in any form, for any damage that is related to use, for accessing, or viewing the samples. By accessing, viewing, or seeing the samples, you acknowledge and agree Syncfusion’s samples will not allow you seek injunctive relief in any form for any claim related to the sample. If you do not agree to this, do not view, access, utilize, or otherwise do anything with Syncfusion’s samples.
 
 # Troubleshooting
 ## Path too long exception
